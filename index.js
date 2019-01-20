@@ -17,7 +17,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-mongoose.connect('mongodb://localhost:27017/mystore')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mystore')
 
 var mystoreSchema = new mongoose.Schema({
 	title: String,
@@ -251,4 +251,4 @@ app.get('/completecart',async (req,res)=>{
   }
 });
 
-app.listen(3000);
+app.listen(process.env.PORT||3000);
