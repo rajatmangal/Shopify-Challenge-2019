@@ -9,7 +9,11 @@ var UserSchema = new mongoose.Schema({
     title: String,
     quantity: Number,
     price: Number
-  }]
+  }],
+  total: {
+    type:Number,
+    default:0.0
+  }
 });
 
 // This adds some methods to the UserSchema
